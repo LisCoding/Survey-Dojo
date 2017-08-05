@@ -7,7 +7,12 @@ def index():
 @app.route("/result", methods=["POST"])
 def reply():
     user_name = request.form["name"]
-    # lenguage = request.form["value"]
-    return render_template('result.html', name=user_name)
+    leng = request.form["leng"]
+    location = request.form["locations"]
+    comment = request.form["comment"]
+    return render_template('result.html', name=user_name, leng=leng, location = location, comment = comment)
 
+@app.route("/back", methods=["POST"])
+def go_back():
+    return redirect("/")
 app.run(debug=True)
