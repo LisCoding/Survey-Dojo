@@ -5,8 +5,9 @@ def index():
     return render_template("index.html")
 
 @app.route("/result", methods=["POST"])
-def result():
-    name = request.form["name"]
-    return redirect('/')
+def reply():
+    user_name = request.form["name"]
+    # lenguage = request.form["value"]
+    return render_template('result.html', name=user_name)
 
 app.run(debug=True)
